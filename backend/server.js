@@ -7,10 +7,11 @@ const authRoutes = require("./routes/authRoutes")
 const incomeRoutes = require("./routes/incomeRoutes")
 const expenseRoutes = require("./routes/expenseRoutes")
 const dashboardRoutes = require("./routes/dashboardRoutes")
-
+const job = require("./config/cron")
 
 const app = express()
 
+if(process.env.NODE_ENV === 'production') job.start()
 //middleware handling 
 
 app.use(
@@ -24,6 +25,9 @@ app.use(
 app.use(express.json())
 
 connectDB()
+app.get("/api/health", (req,res) =>{
+    res.status(200).json({status:"ok"})
+})
 
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/income", incomeRoutes)

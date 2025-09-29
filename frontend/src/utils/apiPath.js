@@ -1,6 +1,7 @@
-export const BASE_URL = 'https://expense-tracker-nj1d.onrender.com'
+export const BASE_URL = 'http://localhost:8000'
 // or for local development you can use           
-// 'http://localhost:8000'
+// 'https://expense-tracker-nj1d.onrender.com'
+
 
 export const API_PATH ={
     AUTH:{

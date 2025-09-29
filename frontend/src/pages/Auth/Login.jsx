@@ -1,5 +1,4 @@
 import React,{useContext, useState} from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/inputs/input'
 import { Link } from 'react-router-dom'
@@ -50,55 +49,71 @@ const Login = () => {
     }
   };
 
-  return (
-    <AuthLayout>
-      <div className='w-full border-[1px] border-violet-300 rounded-2xl p-6 max-w-md mx-auto mt-10 md:mt-0 flex flex-col justify-center'>
-        <h3 className='text-2xl font-bold text-center text-black'>Welcome Back</h3>
-        <p className='text-sm text-center text-slate-600 mt-2 mb-6'>
+ return (
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-violet-200 via-pink-100 to-indigo-200">
+      {/* 🔮 Bubble animation background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+      </div>
+
+      {/* Login card */}
+      <div className="relative w-full max-w-md bg-white border border-violet-200 rounded-2xl shadow-xl p-6 sm:p-8 md:p-10">
+        <h3 className="text-2xl md:text-3xl font-bold text-center text-violet-700">
+          Welcome Back
+        </h3>
+        <p className="text-sm text-center text-slate-600 mt-2 mb-6">
           Login to continue
         </p>
 
-        <form onSubmit={handleLogin} className='space-y-6'>
+        <form onSubmit={handleLogin} className="space-y-6">
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            label='Email'
-            type='email'
-            placeholder='john@example.com'
+            label="Email"
+            type="email"
+            placeholder="john@example.com"
           />
 
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            label='Password'
-            type='password'
-            placeholder='Enter your password'
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
           />
 
           {error && (
-            <p className='text-sm text-red-600 font-medium -mt-3'>{error}</p>
+            <p className="text-sm text-red-600 font-medium -mt-3">{error}</p>
           )}
 
           <button
-            type='submit'
-            className={`btn-primary w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            type="submit"
+            className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+              bg-violet-600 text-white hover:bg-violet-700 shadow-md
+              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={loading}
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? "Logging in..." : "Login"}
           </button>
 
-          <p className='text-sm text-slate-700 text-center mt-4'>
-            Don’t have an account?{' '}
+          <p className="text-sm text-slate-700 text-center mt-4">
+            Don’t have an account?{" "}
             <Link
-              to='/signup'
-              className='font-semibold text-violet-600 underline'
+              to="/signup"
+              className="font-semibold text-violet-600 hover:text-violet-700 underline"
             >
               Sign Up
             </Link>
           </p>
         </form>
       </div>
-    </AuthLayout>
+    </div>
   );
 };
 

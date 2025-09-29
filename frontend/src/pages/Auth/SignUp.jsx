@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/inputs/input'
 import { Link } from 'react-router-dom'
@@ -65,65 +64,78 @@ const SignUp = () => {
     }
   };
 
-  return (
-    <AuthLayout>
-      <div className='w-full border-[1px] border-violet-300 rounded-2xl p-6 max-w-lg mx-auto mt-10 md:mt-0 flex flex-col justify-center'>
-        <h3 className='text-xl font-bold text-center p-6 text-black'>Create an Account</h3>
+ return (
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-violet-200 via-pink-100 to-indigo-200">
+      {/* 🔮 Bubble animation background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+      </div>
 
-        <form onSubmit={handleSignup} className='space-y-6'>
-          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+      {/* Signup card */}
+      <div className="relative w-full max-w-md bg-white border border-violet-200 rounded-2xl shadow-xl p-6 sm:p-8 md:p-10">
+        <h3 className="text-2xl md:text-3xl font-bold text-center text-violet-700 mb-8">
+          Create an Account
+        </h3>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            <Input
-              label='Full Name'
-              type='text'
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              placeholder='John Doe'
-            />
-            <Input
-              label='Email'
-              type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder='john@example.com'
-            />
-            <div className='col-span-2'>
-              <Input
-                label='Password'
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder='Enter your password'
-              />
-            </div>
-          </div>
+        <form onSubmit={handleSignup} className="space-y-6">
+          <Input
+            label="Full Name"
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            placeholder="John Doe"
+          />
+
+          <Input
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="john@example.com"
+          />
+
+          <Input
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+          />
 
           {error && (
-            <p className='text-sm text-red-600 font-medium -mt-2'>{error}</p>
+            <p className="text-sm text-red-600 font-medium -mt-2">{error}</p>
           )}
 
           <button
-            type='submit'
-            className={`btn-primary w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            type="submit"
+            className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+              bg-violet-600 text-white hover:bg-violet-700 shadow-md
+              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={loading}
           >
-            {loading ? 'Signing Up...' : 'Sign Up'}
+            {loading ? "Signing Up..." : "Sign Up"}
           </button>
 
-          <p className='text-sm text-slate-700 text-center mt-4'>
-            Already have an account?{' '}
+          <p className="text-sm text-slate-700 text-center mt-4">
+            Already have an account?{" "}
             <Link
-              to='/login'
-              className='font-semibold text-violet-600 underline'
+              to="/login"
+              className="font-semibold text-violet-600 hover:text-violet-700 underline"
             >
               Login
             </Link>
           </p>
         </form>
       </div>
-    </AuthLayout>
+    </div>
   );
+
 };
 
 export default SignUp;
