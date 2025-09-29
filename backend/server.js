@@ -7,7 +7,7 @@ const authRoutes = require("./routes/authRoutes")
 const incomeRoutes = require("./routes/incomeRoutes")
 const expenseRoutes = require("./routes/expenseRoutes")
 const dashboardRoutes = require("./routes/dashboardRoutes")
-const job = require("./config/cron")
+const job = require("./config/cron").default
 
 const app = express()
 
