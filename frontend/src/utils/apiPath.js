@@ -1,8 +1,5 @@
 
-export const BASE_URL = import.meta.env.VITE_BASE_URL;
-// or for local development you can use           
-// 'https://expense-tracker-nj1d.onrender.com'
-
+export const BASE_URL = 'https://expense-tracker-nj1d.onrender.com'
 
 export const API_PATH ={
     AUTH:{
