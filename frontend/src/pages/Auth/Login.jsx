@@ -50,7 +50,7 @@ const Login = () => {
   };
 
  return (
-    <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-violet-200 via-pink-100 to-indigo-200">
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-pink-200 via-pink-100 to-indigo-200">
       {/* 🔮 Bubble animation background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="bubble"></div>
@@ -64,7 +64,7 @@ const Login = () => {
 
       {/* Login card */}
       <div className="relative w-full max-w-md bg-white border border-violet-200 rounded-2xl shadow-xl p-6 sm:p-8 md:p-10">
-        <h3 className="text-2xl md:text-3xl font-bold text-center text-violet-700">
+        <h3 className="text-2xl md:text-3xl font-bold text-center text-pink-500">
           Welcome Back
         </h3>
         <p className="text-sm text-center text-slate-600 mt-2 mb-6">
@@ -95,7 +95,7 @@ const Login = () => {
           <button
             type="submit"
             className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
-              bg-violet-600 text-white hover:bg-violet-700 shadow-md
+              bg-pink-500 text-white hover:bg-pink-800 shadow-md
               ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={loading}
           >
@@ -106,7 +106,7 @@ const Login = () => {
             Don’t have an account?{" "}
             <Link
               to="/signup"
-              className="font-semibold text-violet-600 hover:text-violet-700 underline"
+              className="font-semibold text-pink-500 hover:text-pink-700 underline"
             >
               Sign Up
             </Link>
